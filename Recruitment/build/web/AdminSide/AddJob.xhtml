@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Add Department</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta content="Themesbrand" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico"/>
+
+        <!-- Bootstrap Css -->
+        <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+        <ui:include src="header.xhtml"></ui:include>
+        <ui:include src="sidebar.xhtml"></ui:include>
+        <div class="main-content">
+            <div class="page-content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-3"></div>
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title mb-4">Add Job</h4>        
+                                    <f:view>
+
+
+                                        <h:form>                                            
+                                            <p:panelGrid columns="2">                                                
+                                                <p:outputLabel value="Title:" for="title" />
+                                                <p:inputText id="title" value="#{jobManagedBean.title}" title="Title" required="true" requiredMessage="The Title field is required."/>
+                                                <p:outputLabel value="Details:" for="details" />
+                                                <p:inputText id="details" value="#{jobManagedBean.details}" title="Details" required="true" requiredMessage="The Details field is required."/>
+                                                <p:outputLabel value="NoOfVacancy:" for="noOfVacancy" />
+                                                <p:inputText id="noOfVacancy" value="#{jobManagedBean.vacancy}" title="NoOfVacancy" required="true" requiredMessage="The NoOfVacancy field is required."/>
+                                                <p:outputLabel value="Package1:" for="package1" />
+                                                <p:inputText id="package1" value="#{jobManagedBean.packages}" title="Package1" required="true" requiredMessage="The Package1 field is required."/>
+                                                <p:outputLabel value="LastDate:" for="lastDate" />
+                                                <p:inputText id="lastDate" value="#{jobManagedBean.lastdate}" title="LastDate" >
+                                                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                                                </p:inputText>
+                                                <p:outputLabel value="JobType:" for="jobType" />
+                                                <p:inputText id="jobType" value="#{jobManagedBean.jobtype}" title="JobType" required="true" requiredMessage="The JobType field is required."/>
+                                                <p:outputLabel value="BondYear:" for="bondYear" />
+                                                <p:inputText id="bondYear" value="#{jobManagedBean.bondyear}" title="BondYear" required="true" requiredMessage="The BondYear field is required."/>
+                                                <p:outputLabel value="CompanyId:" for="companyId" />                                                                                                
+                                                <h:selectOneMenu  id="companyId" class="form-control" value="#{jobManagedBean.companyid}" required="true" label="Select State">
+                                                    <f:selectItem itemLabel="--Select Job--" itemDisabled="true"></f:selectItem>
+                                                    <f:selectItems value="#{jobManagedBean.companylist}" var="company" itemLabel="#{company.name}" itemValue="#{company.id}"/>
+                                                </h:selectOneMenu>
+                                            </p:panelGrid>
+                                            <br/>
+                                            <!--<h:commandButton update="@form" class="btn btn-primary" action="#{jobManagedBean.addJob()}" value="insert"></h:commandButton><br/>-->
+                                        </h:form>
+                                    </f:view>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ui:include src="footer.xhtml"></ui:include>
+    </h:body>
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/node-waves/waves.min.js"></script>
+
+    <script src="assets/js/app.js"></script>
+</html>
+
