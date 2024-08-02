@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Add Department</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta content="Themesbrand" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico"/>
+
+        <!-- Bootstrap Css -->
+        <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+        <ui:include src="header.xhtml"></ui:include>
+        <ui:include src="sidebar.xhtml"></ui:include>
+<div class="main-content">
+            <div class="page-content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-3"></div>
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title mb-4">Edit Company</h4>        
+                                    <f:view>
+
+
+                                        <h:form>
+                                          <h:panelGrid columns="2">
+                                                <h:outputLabel value="Name:" for="name" />
+                                                <h:inputText id="name" value="#{umb.name}" title="Name" required="true" requiredMessage="The Name field is required."/>
+                                                <h:outputLabel value="Address:" for="address" />
+                                                <h:inputText id="address" value="#{umb.address}" title="Address" required="true" requiredMessage="The Address field is required."/>
+                                                <h:outputLabel value="ZipCode:" for="zipCode" />
+                                                <h:inputText id="zipCode" value="#{umb.zipcode}" title="ZipCode" required="true" requiredMessage="The ZipCode field is required."/>
+                                                <h:outputLabel value="CountryId:" for="countryid" />
+                                                <h:selectOneMenu id="country" value="#{umb.countryid}" required="true" requiredMessage="The CountryId field is required.">
+                                                   <f:selectItem itemLabel="--Select Country--" itemDisabled="false"></f:selectItem>
+                                                    <f:selectItems value="#{umb.countryList}" var="cou" itemLabel="#{cou.name}" itemValue="#{cou.id}"/>
+                                                    <f:ajax listener="#{umb.changeCountry}" render="state"/>                      
+                                                </h:selectOneMenu>
+                                                
+                                                <h:outputLabel value="StateId:" for="state" />
+                                                <h:selectOneMenu id="state" value="#{umb.stateid}" required="true" requiredMessage="The StateId field is required.">
+                                                    <f:selectItem itemValue="#{null}" itemLabel="--Select State--" itemDisabled="false"></f:selectItem>
+                                                    <f:selectItems value="#{umb.stateList}" var="sta" itemLabel="#{sta.name}" itemValue="#{sta.id}"/>
+                                                    <f:ajax listener="#{umb.changeState}" render="city"/>                      
+                                                </h:selectOneMenu>
+                                                <h:outputLabel value="CityId:" for="city" />
+                                                <h:selectOneMenu id="city" value="#{umb.cityid}" required="true" requiredMessage="The CityId field is required.">
+                                                   <f:selectItem itemLabel="--Select City--" itemDisabled="false"></f:selectItem>
+                                                   <f:selectItems value="#{umb.cityList}" var="ct" itemLabel="#{ct.name}" itemValue="#{ct.id}"/>
+                                                </h:selectOneMenu>
+                                            </h:panelGrid>
+                                                                                          
+                                              <br/>
+                                            <h:commandButton class="btn btn-primary" action="#{umb.updateUnit()}" value="edit"></h:commandButton><br/>
+                                        </h:form>
+                                    </f:view>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ui:include src="footer.xhtml"></ui:include>
+    </h:body>
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/node-waves/waves.min.js"></script>
+
+    <script src="assets/js/app.js"></script>
+</html>
+

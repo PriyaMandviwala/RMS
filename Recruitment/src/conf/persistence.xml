@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="RecruitmentPU" transaction-type="JTA">
+    <jta-data-source>jdbc/itprojectdata</jta-data-source>
+    <class>entity.Aptitudetest</class>
+    <class>entity.Userskillset</class>
+    <class>entity.City</class>
+    <class>entity.Inquiry</class>
+    <class>entity.Companyphotos</class>
+    <class>entity.Personalinterview</class>
+    <class>entity.Document</class>
+    <class>entity.Companyservices</class>
+    <class>entity.Telephonicinterview</class>
+    <class>entity.Jobskillset</class>
+    <class>entity.Resume</class>
+    <class>entity.Rejected</class>
+    <class>entity.State</class>
+    <class>entity.Register</class>
+    <class>entity.Unit</class>
+    <class>entity.Testinstruction</class>
+    <class>entity.Selectedcandidate</class>
+    <class>entity.Jobdetails</class>
+    <class>entity.Aptituderesult</class>
+    <class>entity.Companystages</class>
+    <class>entity.Role</class>
+    <class>entity.Experience</class>
+    <class>entity.Country</class>
+    <class>entity.Company</class>
+    <class>entity.Stages</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/recruitementdb?useSSL=false"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="Priya"/>
+    </properties>
+  </persistence-unit>
+</persistence>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+         name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5"/>
+	<meta name="author" content="AdminKit" />
+	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web" />
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" />
+	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+
+	<link rel="canonical" href="https://demo-basic.adminkit.io/ui-forms.html" />
+
+	<title>Add Company</title>
+
+	<link href="css/app.css" rel="stylesheet" />
+	
+    </h:head>
+    <f:view>
+
+
+        <h:form>
+            <h1><h:outputText value="Create/Edit"/></h1>
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Id:" for="id" />
+                <p:inputText id="id" value="#{cmb.company.id}" title="Id" required="true" requiredMessage="The Id field is required."/>
+                <p:outputLabel value="Name:" for="name" />
+                <p:inputText id="name" value="#{cmb.company.name}" title="Name" required="true" requiredMessage="The Name field is required."/>
+                <p:outputLabel value="Password:" for="password" />
+                <p:inputText id="password" value="#{cmb.company.password}" title="Password" required="true" requiredMessage="The Password field is required."/>
+                <p:outputLabel value="Email:" for="email" />
+                <p:inputText id="email" value="#{cmb.company.email}" title="Email" required="true" requiredMessage="The Email field is required."/>
+                <p:outputLabel value="ContactNumber:" for="contactNumber" />
+                <p:inputText id="contactNumber" value="#{cmb.company.contactNumber}" title="ContactNumber" required="true" requiredMessage="The ContactNumber field is required."/>
+                <p:outputLabel value="NoOfEmployee:" for="noOfEmployee" />
+                <p:inputText id="noOfEmployee" value="#{cmb.company.noOfEmployee}" title="NoOfEmployee" required="true" requiredMessage="The NoOfEmployee field is required."/>
+                <p:outputLabel value="UnitId:" for="unitId" />
+                <p:selectOneMenu id="unitId" value="#{cmb.unitid}" required="true" requiredMessage="The UnitId field is required.">
+                    <!-- TODO: update below reference to list of available items-->
+                    <f:selectItems value="#{cmb.unitList}" var="unitlist" itemLabel="#{unitlist.name}" itemValue="#{unitlist.id}"/>
+                </p:selectOneMenu>
+                <p:commandButton action="#{cmb.addCompany()}" value="insert"></p:commandButton><br/>
+            </p:panelGrid>
+        </h:form>
+    </f:view>
+
+</html>

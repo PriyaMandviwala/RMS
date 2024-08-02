@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Add Department</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta content="Themesbrand" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico"/>
+
+        <!-- Bootstrap Css -->
+        <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+        <ui:include src="../AdminSide/header.xhtml"></ui:include>
+        <ui:include src="../AdminSide/sidebar.xhtml"></ui:include>     
+<div class="main-content">
+            <div class="page-content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-3"></div>
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title mb-4">Edit Inquiry</h4>        
+                                    <f:view>
+                                        <h:form>
+                                            <h:panelGrid columns="2">
+                                                <h:outputLabel value="Message:" for="message" />
+                                                <h:inputText id="message" value="#{imb.message}" title="Message" required="true" requiredMessage="The Message field is required."/>
+                                                <h:outputLabel value="IsRead:" for="isRead" />
+                                                <h:inputText id="isRead" value="#{imb.isread}" title="IsRead" required="true" requiredMessage="The IsRead field is required."/>
+                                                <h:outputLabel value="JobId:" for="jobId" />
+                                                <h:selectOneMenu id="jobId" value="#{imb.jobid}" title="JobId" required="true" requiredMessage="The JobTitle field is required.">
+                                                   <f:selectItem itemLabel="--Select Job--" itemDisabled="true"></f:selectItem>
+                                                   <f:selectItems value="#{imb.jobList}" var="job" itemLabel="#{job.title}" itemValue="#{job.id}"/>
+                                                </h:selectOneMenu>
+                                                <h:outputLabel value="UserName:" for="userName" />
+                                                <h:selectOneMenu id="userName" value="#{imb.username}" title="UserName" required="true" requiredMessage="The UserName field is required.">
+                                                     <f:selectItem itemLabel="--Select State--" itemDisabled="true"></f:selectItem>
+                                                     <f:selectItems value="#{imb.userList}" var="user" itemLabel="#{user.username}" itemValue="#{user.username}"/>
+                                                </h:selectOneMenu>
+                                            </h:panelGrid>
+                                            <h:commandButton class="btn btn-primary" action="#{imb.EditInquiry(item.id)}" value="edit"></h:commandButton><br/>
+
+                                        </h:form>
+                                    </f:view>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ui:include src="../AdminSide/footer.xhtml"></ui:include>
+    </h:body>
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/node-waves/waves.min.js"></script>
+
+    <script src="assets/js/app.js"></script>
+</html>
+
